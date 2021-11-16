@@ -5,13 +5,13 @@ import 'package:restourantapp/model/restaurant.dart';
 
 class ApiService {
   static const _baseUrl = "https://restaurant-api.dicoding.dev/";
-  static final _queryparam = {'q': 'es'};
-  static const _apiSearch = "/search";
-  static const _apiList = "/list";
-  static const _apiDetail = "/detail/";
-  Future<HeaderSearch> restaurantSearch() async {
+
+  static const _apiSearch = "search";
+  static const _apiList = "list";
+  static const _apiDetail = "detail/";
+  Future<HeaderSearch> restaurantSearch(String query) async {
+    final _queryparam = {'q': query};
     String uri = Uri(queryParameters: _queryparam).query;
-    print(uri);
     var endpoint = _baseUrl + _apiSearch + "?" + uri;
     final response = await http.get(Uri.parse(endpoint));
     if (response.statusCode == 200) {

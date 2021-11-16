@@ -1,10 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:restourantapp/pages/list_restaurant.dart';
-import 'package:restourantapp/pages/view_pages_menu.dart';
-
-import 'model/restaurant.dart';
+import 'package:restourantapp/pages/list_restaurant_pages.dart';
+import 'package:restourantapp/pages/menu_pages.dart';
 
 void main() {
   //fake cors delete if u test in real device
@@ -22,8 +20,7 @@ class MyApp extends StatelessWidget {
       routes: {
         ListRestaurant.routeName: (context) => const ListRestaurant(),
         ViewDetailsMenu.routeNamed: (context) => ViewDetailsMenu(
-            restaurant:
-                ModalRoute.of(context)?.settings.arguments as Restaurant)
+            idRestaurant: ModalRoute.of(context)?.settings.arguments as String)
       },
     );
   }
